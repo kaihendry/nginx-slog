@@ -1,0 +1,8 @@
+services:
+  web:
+    image: openresty/openresty:latest
+    platform: linux/amd64
+    volumes:
+      - ./nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+    ports:
+      - 80:80
