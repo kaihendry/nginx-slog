@@ -1,0 +1,12 @@
+name: Log test
+on:
+  push:
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker compose up --wait --detach --quiet-pull
+      - run: "curl -si http://localhost"
+      - run: docker compose logs
+        if: ${{ always() }}
